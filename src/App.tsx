@@ -1,24 +1,29 @@
-import React from 'react';
-import logo from './logo.svg';
+import React, { useRef } from 'react';
 import './App.css';
+import { MainScreen } from './screens/MainScreen/MainScreen';
+import { InfoScreen } from './screens/InfoScreen/InfoScreen';
+import { ContactScreen } from './screens/ContactScreen/ContactScreen';
 
 function App() {
+  const infoSection = useRef<HTMLDivElement>(null);
+  const mainSection = useRef<HTMLDivElement>(null);
+  const contactSection = useRef<HTMLDivElement>(null);
+
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <div ref={mainSection}>
+        <MainScreen
+            infoRef={infoSection}
+            contactRef={contactSection}
+            mainRef={mainSection}
+          />
+      </div>
+      <div ref={infoSection}>
+        <InfoScreen/>
+      </div>
+      <div ref={contactSection}>
+        <ContactScreen />
+      </div>
     </div>
   );
 }
