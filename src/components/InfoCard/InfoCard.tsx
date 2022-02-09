@@ -5,21 +5,37 @@ import CardMedia from '@mui/material/CardMedia';
 import Typography from '@mui/material/Typography';
 import { CardActionArea } from '@mui/material';
 import { Title } from './InfoCard.style';
-import { ModalComponent } from '../Modal/Modal';
+import { makeStyles } from '@material-ui/core';
+import GlobalState from '../../context/GlobalState';
 
 interface AreaCardType { 
-  title: string
+  title: string,
+  type: string,
 }
-
-export const ActionAreaCard = ({ title }: AreaCardType) => {
+const useStyles = makeStyles({
+  card: {
+    width: 300,
+    height: 70,
+    ['@media (min-width:780px)']: {
+      width: 350,
+      height: 200
+    },
+  },
+});
+export const ActionAreaCard = ({ title, type }: AreaCardType) => {
+  const classes = useStyles()
+  const { modalType, setModalOpen } = React.useContext(GlobalState);
+  if(setModalOpen === undefined) {
+    return null;
+  }
   return (
-    <Card style={{backgroundColor: "#000", color: '#fff', marginRight: '20px', marginTop: '20px'}} sx={{ maxWidth: 445, width: 350, height: 200 }}>
+    <Card 
+      style={{backgroundColor: "#000", color: '#fff', marginRight: '20px', marginTop: '20px'}}
+      // sx={{ maxWidth: 445, width: 350, height: 200 }}
+      className={classes.card}
+      onClick={() => setModalOpen(type)}
+      >
       <CardActionArea style={{ height: '100%'}}>
-        {/* <CardMedia
-          component="img"
-          height="140"
-          alt="green iguana"
-        /> */}
         <CardContent>
           <Typography gutterBottom variant="h5" component="div">
             <Title>
@@ -34,3 +50,4 @@ export const ActionAreaCard = ({ title }: AreaCardType) => {
     </Card>
   );
 }
+

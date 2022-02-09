@@ -1,4 +1,5 @@
-import React from 'react'; // we need this to make JSX compile
+import React, { useContext } from 'react'; // we need this to make JSX compile
+import GlobalState from '../../context/GlobalState';
 import { AboutText, AboutWrapper, Name } from './About.style';
 
 type CardProps = {
@@ -7,12 +8,17 @@ type CardProps = {
 }
 
 export const About = () => {
+    const { lang } = useContext(GlobalState);
+    const isPl = lang === 'pl';
+    const texts: Record<string, string> = {
+        description: isPl ? 'Weź biznes w swoje ręce. Kwestie prawne pozostaw naszym specjalistom.' : 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.',
+    }
+    
     return (
         <AboutWrapper>
-            <Name>Mateusz Kozlowski</Name>
+            <Name>Mateusz Kozłowski</Name>
             <AboutText>
-                Weź biznes w swoje ręce.
-                Kwestie prawne pozostaw naszym specjalistom.
+               {texts.description}
             </AboutText>
         </AboutWrapper>
       

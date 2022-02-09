@@ -7,6 +7,8 @@ import Select, { SelectChangeEvent } from '@mui/material/Select';
 import plFlag from '../../assets/pl.png'
 import gbFlag from '../../assets/gb.png'
 import { makeStyles } from '@material-ui/core';
+import { useContext } from 'react';
+import GlobalState from '../../context/GlobalState';
 
 const useStyles = makeStyles({
   select: {
@@ -23,17 +25,25 @@ const useStyles = makeStyles({
   }
 });
 export default function BasicSelect() {
-  const [lang, setLang] = React.useState('pl');
+  const { lang, setLang } = useContext(GlobalState);
+  // const [state, setState] = ;
 
   const handleChange = (event: SelectChangeEvent) => {
-    setLang(event.target.value as string);
+    if(setLang !== undefined) {
+      setLang(event.target.value);
+    }
   };
 
 const classes = useStyles()
+const isPl = lang === 'pl';
+const texts: Record<string, string> = {
+    label: isPl ? 'Język' : 'Language',
+    languagePol: isPl ? 'Polski' : 'Polish',
+    languageEng: isPl ? 'Angielski' : 'English',
+}
   return (
     <Box sx={{ minWidth: 120 }}>
       <FormControl variant="standard" fullWidth>
-        {/* <InputLabel id="demo-simple-select-standard-label">Język</InputLabel> */}
         <Select
             labelId="demo-simple-select-standard-label"
             id="demo-simple-select-standard"
@@ -45,13 +55,12 @@ const classes = useStyles()
                   icon: classes.icon,
               },
           }}
-            label="Język"
+            label={texts.label}
             onChange={handleChange}
             style={{color: 'white'}}
-        //   style={{display: 'flex', flexDirection: 'column'}}
         >
-          <MenuItem style={{ display: 'flex'}} value={'pl'}>Polski &nbsp; <img src={plFlag} /></MenuItem>
-          <MenuItem style={{ display: 'flex'}} value={'en'}>Angielski &nbsp; <img src={gbFlag} /> </MenuItem>
+          <MenuItem style={{ display: 'flex'}} value={'pl'}>{texts.languagePol} &nbsp; <img src={plFlag} /></MenuItem>
+          <MenuItem style={{ display: 'flex'}} value={'en'}>{texts.languageEng}  &nbsp; <img src={gbFlag} /> </MenuItem>
         </Select>
       </FormControl>
     </Box>

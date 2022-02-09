@@ -12,5 +12,10 @@ export const InfoScreenWrapper = styled.div`
 export const Row = styled.div`
    display: flex;
    padding: 20px auto;
+   flex-direction: column;
+
+   @media (min-width: 768px) {
+        flex-direction: row;
+   }
 
 `;

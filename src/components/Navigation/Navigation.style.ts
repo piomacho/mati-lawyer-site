@@ -10,12 +10,16 @@ export const NavigationPanel = styled.div`
 `;
 
 export const Links = styled.div`
-    display: flex;
+    
     border-bottom: 1px solid #fff;
     padding-right: 20px;
     margin-right: 20px;
-    padding-bottom: 10px;
+    padding-bottom: 7px;
     margin-top: 20px;
+    display: none;
+    @media (min-width: 768px) {
+        display: flex;
+    }
 
 `
 export const Link = styled.div`

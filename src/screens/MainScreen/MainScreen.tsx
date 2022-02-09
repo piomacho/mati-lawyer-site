@@ -15,17 +15,7 @@ export const MainScreen = ({ infoRef, mainRef, contactRef }: MainScreenType) => 
     mainRef={mainRef}
     contactRef={contactRef}
   />
-  
-  {/* <Wrapper> */}
-    {/* <PersonDescription> */}
-      <ProfilePhoto />
-      <About/>
-    {/* </PersonDescription> */}
-    {/* <ImageWithDescriptionWrapper>
-      <div>asdsadasdsads</div>
-    </ImageWithDescriptionWrapper> */}
-  {/* </Wrapper> */}
- 
-  <div id="main">
-</div>
+    <ProfilePhoto />
+    <About/>
+
 </MainScreenWrapper>
