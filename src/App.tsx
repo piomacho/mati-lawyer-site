@@ -4,13 +4,15 @@ import { MainScreen } from './screens/MainScreen/MainScreen';
 import { InfoScreen } from './screens/InfoScreen/InfoScreen';
 import { ContactScreen } from './screens/ContactScreen/ContactScreen';
 import GlobalState, { defaultState } from './context/GlobalState';
+import{ init } from '@emailjs/browser';
 
 function App() {
   const infoSection = useRef<HTMLDivElement>(null);
   const mainSection = useRef<HTMLDivElement>(null);
   const contactSection = useRef<HTMLDivElement>(null);
   const [lang, setLang] = useState(defaultState.lang);  
-  const [modalType, setModalOpen] = useState<string | null>(defaultState.modalType);  
+  const [modalType, setModalOpen] = useState<string | null>(defaultState.modalType);
+
   return (
     <GlobalState.Provider value={{ 
       lang,

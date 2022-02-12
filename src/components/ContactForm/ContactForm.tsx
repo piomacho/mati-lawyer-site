@@ -1,10 +1,20 @@
-import React, { useContext } from 'react';
-import { Grid, TextField, Button, Card, CardContent, Typography } from '@material-ui/core';
+import React, { useContext, useRef, useState } from 'react';
+import { Grid, TextField, Button, Card, CardContent, Typography, makeStyles } from '@material-ui/core';
 import GlobalState from '../../context/GlobalState';
 import { Wrapper } from './ContactForm.style';
+import emailjs from '@emailjs/browser';
 
 export const ContactForm = () => {
     const { lang } = useContext(GlobalState);
+    const form = useRef();
+    const [formData, setFormData] = useState({
+        name: "",
+        lastName: "",
+        phone: "",
+        email: "",
+        message: "",
+    });
+
     const isPl = lang === 'pl';
     const texts: Record<string, string> = {
         contact: isPl ? 'Skontaktuj się z nami !' : 'Contact with us !',
@@ -13,13 +23,37 @@ export const ContactForm = () => {
         lastName: isPl ? 'Nazwisko' : 'Last Name',
         phone: isPl ? 'Telefon' : 'Phone number',
         message: isPl ? 'Wiadomość' : 'Type your message here',
-        submit: isPl ? 'Wyślij' : 'Sumbmit',
+        submit: isPl ? 'Wyślij' : 'Submit',
         enterName: isPl ? 'Wpisz imię' : 'Enter first name',
         enterLastName: isPl ? 'Wpisz nazwisko' : 'Enter last name',
         enterEmail: isPl ? 'Wpisz email' : 'Enter email',
         enterPhone: isPl ? 'Wpisz numer telefonu' : 'Enter phone number',
     }
+    const isValid = formData.name !== "" && formData.lastName !== "" && formData.email !== "" && formData.email.includes('@') && formData.message !== "" && formData.phone !== "";
+    const sendEmail = (e: any) => {
+        e.preventDefault();
+        var templateParams = {
+            name: 'James',
+            notes: 'Check this out!'
+        };
+        emailjs.send('service_dehyncd', 'template_z7l3czu', templateParams, 'user_0P9AAQCzhyXdJpZhqZftV')
+          .then((result) => {
+              console.log(result.text);
+          }, (error) => {
+              console.log(error.text);
+          });
+      };
     
+    const useStyles = makeStyles({
+    card: {
+        maxWidth: 450, padding: "0 5%", margin: "0 auto",
+        ['@media (min-width:780px)']: {
+            padding: "20px 5px", margin: "0 auto"
+        },
+    },
+    });
+
+    const classes = useStyles();
     return (
         <Wrapper> 
             <Grid>
@@ -31,25 +65,25 @@ export const ContactForm = () => {
                 <Typography variant="body2" color="textSecondary" component="p" gutterBottom>
                 {texts.fillForm}
             </Typography> 
-                <form>
+                <form onSubmit={sendEmail}>
                 <Grid container spacing={1}>
                     <Grid xs={12} sm={6} item>
-                    <TextField onChange={(a) => console.log(a)} placeholder={texts.enterName} label={texts.firstName} variant="outlined" fullWidth required />
+                        <TextField onChange={(a) => setFormData({...formData, name: a.target.value})} value={formData.name} placeholder={texts.enterName} label={texts.firstName} variant="outlined" fullWidth required />
                     </Grid>
                     <Grid xs={12} sm={6} item>
-                    <TextField placeholder={texts.enterLastName}  label={texts.lastName} variant="outlined" fullWidth required />
+                        <TextField  onChange={(a) => setFormData({...formData, lastName: a.target.value})} placeholder={texts.enterLastName} value={formData.lastName}  label={texts.lastName} variant="outlined" fullWidth required />
                     </Grid>
                     <Grid item xs={12}>
-                    <TextField type="email" placeholder={texts.enterEmail} label="Email" variant="outlined" fullWidth required />
+                        <TextField type="email"  onChange={(a) => setFormData({...formData, email: a.target.value})} placeholder={texts.enterEmail} value={formData.email} label="Email" variant="outlined" fullWidth required />
                     </Grid>
                     <Grid item xs={12}>
-                    <TextField type="number" placeholder={texts.enterPhone} label={texts.phone} variant="outlined" fullWidth required />
+                        <TextField type="number"  onChange={(a) => setFormData({...formData, phone: a.target.value})} placeholder={texts.enterPhone} value={formData.phone} label={texts.phone} variant="outlined" fullWidth required />
                     </Grid>
                     <Grid item xs={12}>
-                    <TextField label={texts.message} multiline rows={4} placeholder={texts.message} variant="outlined" fullWidth required />
+                        <TextField label={texts.message}  onChange={(a) => setFormData({...formData, message: a.target.value})} multiline rows={4} placeholder={texts.message} value={formData.message} variant="outlined" fullWidth required />
                     </Grid>
                     <Grid item xs={12}>
-                        <Button style={{backgroundColor: '#000', color: '#fff'}} type="submit" variant="contained" color="primary" fullWidth>{texts.submit}</Button>
+                        <Button style={{backgroundColor: isValid ? '#000' : '#ccc8c8', color: '#fff', cursor: isValid ? 'pointer' : 'not-allowed'}} type="submit" variant="contained" color="primary" fullWidth>{texts.submit}</Button>
                     </Grid>
 
                 </Grid>

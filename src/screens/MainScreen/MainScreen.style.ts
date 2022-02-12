@@ -18,6 +18,10 @@ export const PersonDescription = styled.div`
    /* padding-top: 20px; */
 `;
 
+export const Wrapper = styled.div`
+
+`;
+
 // export const ImageWithDescriptionWrapper = styled.div`
 //    width: 50%;
 //    z-index: 1;

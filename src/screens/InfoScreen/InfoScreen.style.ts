@@ -1,5 +1,8 @@
 import styled from "styled-components";
 
+interface SectionTitle {
+    themeDark: boolean;
+}
 
 export const InfoScreenWrapper = styled.div`
     height: 100vh;
@@ -18,4 +21,13 @@ export const Row = styled.div`
         flex-direction: row;
    }
 
+`;
+
+export const SectionTitle = styled.div<SectionTitle>`
+    padding-top: 20px;
+    margin-left: 30px;
+    position: absolute;
+    font-size: 22px;
+    text-decoration: underline;
+    color: ${({themeDark}) => themeDark  ? '#fff' : '#000'};
 `;

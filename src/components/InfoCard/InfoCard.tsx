@@ -15,10 +15,10 @@ interface AreaCardType {
 const useStyles = makeStyles({
   card: {
     width: 300,
-    height: 70,
+    height: 90,
     ['@media (min-width:780px)']: {
       width: 350,
-      height: 200
+      height: 150
     },
   },
 });

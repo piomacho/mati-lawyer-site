@@ -22,6 +22,15 @@ export const Links = styled.div`
     }
 
 `
+export const HamburgerWrapper = styled.div`
+    position: absolute;
+    right: 0%;
+    margin-top: 15px;
+    @media (min-width: 768px) {
+        display: none;
+    }
+`;
+
 export const Link = styled.div`
     margin-left: 20px;
     color: #fff;
@@ -34,18 +43,19 @@ export const Link = styled.div`
 export const EmailWrapper = styled.div`
     display: flex;
     align-items: center;
-    margin-left: 20%;
+    margin-left: 30px;
+   
     color: #fff;
-`
-export const EmailTxt = styled.div`
     display: none;
     @media (min-width: 768px) {
-        display: block;
-        margin-left: 5px;
+        display: flex;
         
 
     }
+`
+export const EmailTxt = styled.div`
 
+        margin-left: 5px;
 `
 
 export const RightSideWrapper = styled.div`
