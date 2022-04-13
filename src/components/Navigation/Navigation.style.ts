@@ -5,7 +5,9 @@ export const NavigationPanel = styled.div`
     display: flex;
     justify-content: space-between;
     align-items: center;
-    margin-right: 20px;
+    padding-right: 30px;
+    height: 70px;
+    background-color: #000;
     z-index: 30;
 `;
 
@@ -15,7 +17,6 @@ export const Links = styled.div`
     padding-right: 20px;
     margin-right: 20px;
     padding-bottom: 7px;
-    margin-top: 20px;
     display: none;
     @media (min-width: 768px) {
         display: flex;
@@ -25,7 +26,7 @@ export const Links = styled.div`
 export const HamburgerWrapper = styled.div`
     position: absolute;
     right: 0%;
-    margin-top: 15px;
+    margin-top: 24px;
     @media (min-width: 768px) {
         display: none;
     }

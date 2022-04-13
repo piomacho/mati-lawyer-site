@@ -13,11 +13,11 @@ export const InfoScreen = () => {
 
     const texts: Record<string, string> = {
         sectionTitle: isPl ? 'Oferta' : 'Offer',
-        immigrants: isPl ? 'Cudzoziemcy: Pobyt i praca' : 'ENG -> Cudzoziemcy',
-        polishLessons: isPl ? 'Kursy języka polskiego' : 'ENG -> Kursy',
-        passport: isPl ? 'obywatelstwo polskie' : 'ENG -> obywatelstwo',
-        business: isPl ? 'biznes' : 'ENG -> biznes',
-        others: isPl ? 'others' : 'ENG -> others',
+        immigrants: isPl ? 'Cudzoziemcy: Pobyt i praca' : 'FOREIGNERS: RESIDENCE AND WORK',
+        polishLessons: isPl ? 'Kursy języka polskiego' : 'Polish LANGUAGE COURSES',
+        passport: isPl ? 'obywatelstwo polskie' : 'Polish citizenship',
+        business: isPl ? 'biznes' : 'Business',
+        others: isPl ? 'others' : 'Other',
     }
 
     return( 

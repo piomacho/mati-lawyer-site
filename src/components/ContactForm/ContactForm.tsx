@@ -1,8 +1,9 @@
 import React, { useContext, useRef, useState } from 'react';
 import { Grid, TextField, Button, Card, CardContent, Typography, makeStyles } from '@material-ui/core';
 import GlobalState from '../../context/GlobalState';
-import { Wrapper } from './ContactForm.style';
+import { SuccessMessage, Wrapper } from './ContactForm.style';
 import emailjs from '@emailjs/browser';
+import { serviceName, templateID, userId } from '../../email.config';
 
 export const ContactForm = () => {
     const { lang } = useContext(GlobalState);
@@ -14,6 +15,8 @@ export const ContactForm = () => {
         email: "",
         message: "",
     });
+
+    const [success, setSuccess] = useState(false);
 
     const isPl = lang === 'pl';
     const texts: Record<string, string> = {
@@ -28,19 +31,34 @@ export const ContactForm = () => {
         enterLastName: isPl ? 'Wpisz nazwisko' : 'Enter last name',
         enterEmail: isPl ? 'Wpisz email' : 'Enter email',
         enterPhone: isPl ? 'Wpisz numer telefonu' : 'Enter phone number',
+        success: isPl ? 'Wysłano wiadomość.' : 'Message was sent successfully.'
     }
     const isValid = formData.name !== "" && formData.lastName !== "" && formData.email !== "" && formData.email.includes('@') && formData.message !== "" && formData.phone !== "";
     const sendEmail = (e: any) => {
         e.preventDefault();
         var templateParams = {
-            name: 'James',
-            notes: 'Check this out!'
+            from_name: formData.name,
+            last_name: formData.lastName,
+            message: formData.message,
+            phone: formData.phone,
+            email: formData.email
+
         };
-        emailjs.send('service_dehyncd', 'template_z7l3czu', templateParams, 'user_0P9AAQCzhyXdJpZhqZftV')
+        emailjs.send(serviceName, templateID, templateParams, userId)
           .then((result) => {
               console.log(result.text);
+              setFormData({
+                name: "",
+                lastName: "",
+                phone: "",
+                email: "",
+                message: "",
+            })
+            setSuccess(true);
+            setTimeout(() => setSuccess(false), 3500);
           }, (error) => {
               console.log(error.text);
+              setSuccess(false);
           });
       };
     
@@ -57,7 +75,7 @@ export const ContactForm = () => {
     return (
         <Wrapper> 
             <Grid>
-            <Card style={{ maxWidth: 450, padding: "20px 5px", margin: "0 auto"}}>
+            <Card style={{ maxWidth: 450, padding: "20px 5px 10px 5px", margin: "0 auto"}}>
             <CardContent>
                 <Typography gutterBottom variant="h5">
                 {texts.contact}
@@ -84,6 +102,9 @@ export const ContactForm = () => {
                     </Grid>
                     <Grid item xs={12}>
                         <Button style={{backgroundColor: isValid ? '#000' : '#ccc8c8', color: '#fff', cursor: isValid ? 'pointer' : 'not-allowed'}} type="submit" variant="contained" color="primary" fullWidth>{texts.submit}</Button>
+                    </Grid>
+                    <Grid item xs={12}>
+                        {success ? <SuccessMessage>{texts.success}</SuccessMessage> : null }
                     </Grid>
 
                 </Grid>

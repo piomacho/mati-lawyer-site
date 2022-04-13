@@ -22,6 +22,7 @@ const useStyles = makeStyles({
   },
   icon: {
     fill: '#fff',
+    marginBottom: '2px'
   }
 });
 export default function BasicSelect() {

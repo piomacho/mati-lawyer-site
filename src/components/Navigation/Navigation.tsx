@@ -72,7 +72,7 @@ export const Navigation = ({ infoRef, mainRef, contactRef }: MainScreenType) => 
                     </Link>
                 </Links>
           
-                <div style={{marginTop: '10px', marginLeft: '20px'}}>
+                <div style={{ marginBottom: '9px', marginLeft: '20px'}}>
                     <BasicSelect />
                 </div>
             </RightSideWrapper>
