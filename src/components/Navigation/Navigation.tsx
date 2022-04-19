@@ -56,7 +56,7 @@ export const Navigation = ({ infoRef, mainRef, contactRef }: MainScreenType) => 
             
             <EmailWrapper>
                 <MailOutlineIcon />
-                <EmailTxt>mateusz.kozlowski@gmail.com</EmailTxt>
+                <EmailTxt>h4foreigners@gmail.com</EmailTxt>
             </EmailWrapper>
           
             <RightSideWrapper>

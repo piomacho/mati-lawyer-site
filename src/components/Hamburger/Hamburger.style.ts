@@ -49,6 +49,7 @@ export const LinksWrapper = styled.div<LinksWrapperType>`
     transition: opacity 0.5s linear;
     display: flex;
     flex-direction: column;
+    background-color: #fff;
 
     visibility: ${({showLinks}) => showLinks === false  ? 'hidden' : 'visible'};
     animation: ${({showLinks}) => showLinks === false  ? hideAnimation :showAnimation} 1s linear;
@@ -57,7 +58,7 @@ export const LinksWrapper = styled.div<LinksWrapperType>`
 `;
 
 export const Link = styled.div`
-    color: white;
+    color: #111;
     padding: 14px 16px;
     text-decoration: none;
     font-size: 17px;

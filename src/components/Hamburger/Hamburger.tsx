@@ -30,7 +30,7 @@ export const Hamburger = ({ isPl, texts, goToInfoSection, goToMainSection, goToC
     }
   return (
     <TopNav>
-      <MenuIcon style={{color: '#fff'}} onClick={() => setShowLinks(!showLinks)}/>
+      <MenuIcon style={{color: '#111'}} onClick={() => setShowLinks(!showLinks)}/>
       <LinksWrapper showLinks={showLinks}>
         <Link onClick={mainSectionClick}>{texts.homeLink}</Link>
         <Link onClick={infoSectionClick}>{texts.ofertLink}</Link>

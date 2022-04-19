@@ -2,7 +2,7 @@ import styled from "styled-components";
 import MainImage from "../../assets/hero.jpeg"
 
 export const MainScreenWrapper = styled.div`
-   height: 100vh;
+   min-height: 100vh;
    background: linear-gradient(
           rgba(0, 0, 0, 0.8), 
           rgba(0, 0, 0, 0.8)
@@ -19,8 +19,28 @@ export const PersonDescription = styled.div`
 `;
 
 export const Wrapper = styled.div`
-
+   display: flex;
+   flex-direction: column;
+   height: calc(100% - 70px);
+   align-items: center;
+   padding: 0 10px;
+   @media (min-width: 1000px) {
+      height: calc(100% - 100px);
+      padding: 0 100px;
+      flex-direction: row;
+   }
 `;
+
+export const ImageWrapper = styled.div`
+   display: flex;
+   flex-direction: column;
+   margin-bottom: 15px;
+   @media (min-width: 768px) {
+      margin-bottom: 50px;
+
+   }
+`
+;
 
 // export const ImageWithDescriptionWrapper = styled.div`
 //    width: 50%;

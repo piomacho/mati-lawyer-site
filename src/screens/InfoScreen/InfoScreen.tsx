@@ -1,28 +1,27 @@
 import React, { useContext } from 'react'; // we need this to make JSX compile
-import { ContactForm } from '../../components/ContactForm/ContactForm';
 import { ActionAreaCard } from '../../components/InfoCard/InfoCard';
 import { ModalComponent } from '../../components/Modal/Modal';
 import GlobalState from '../../context/GlobalState';
 
-import { InfoScreenWrapper, Row, SectionTitle } from './InfoScreen.style';
+import { InfoScreenContainer, InfoScreenWrapper, Row, SectionTitle, SectionTitleInfo } from './InfoScreen.style';
 
 export const InfoScreen = () => {
     const { lang } = useContext(GlobalState);
-    const { modalType, setModalOpen } = useContext(GlobalState);
+    const { modalType } = useContext(GlobalState);
     const isPl = lang === 'pl';
 
     const texts: Record<string, string> = {
         sectionTitle: isPl ? 'Oferta' : 'Offer',
         immigrants: isPl ? 'Cudzoziemcy: Pobyt i praca' : 'FOREIGNERS: RESIDENCE AND WORK',
-        polishLessons: isPl ? 'Kursy języka polskiego' : 'Polish LANGUAGE COURSES',
+        insurance: isPl ? 'Ubezpieczenia' : 'Insurance',
         passport: isPl ? 'obywatelstwo polskie' : 'Polish citizenship',
         business: isPl ? 'biznes' : 'Business',
-        others: isPl ? 'others' : 'Other',
+        others: isPl ? 'Inne' : 'Other',
     }
 
     return( 
-    <div style={{backgroundColor: '#000'}}>
-     <SectionTitle themeDark={false}>{texts.sectionTitle}</SectionTitle>
+    <InfoScreenContainer>
+     <SectionTitleInfo>{texts.sectionTitle}</SectionTitleInfo>
      <InfoScreenWrapper>
        
        <div>
@@ -30,7 +29,7 @@ export const InfoScreen = () => {
    
            <Row>
                <ActionAreaCard type="immigrants" title={texts.immigrants}/>
-               <ActionAreaCard type="polish-courses" title={texts.polishLessons}/>
+               <ActionAreaCard type="insurance" title={texts.insurance}/>
            </Row>
        
            <Row>
@@ -46,6 +45,6 @@ export const InfoScreen = () => {
    {/* <ContactForm /> */}
      
    </InfoScreenWrapper>
-    </div>
+    </InfoScreenContainer>
    )
 };

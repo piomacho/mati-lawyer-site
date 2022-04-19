@@ -13,15 +13,15 @@ import GlobalState from '../../context/GlobalState';
 const useStyles = makeStyles({
   select: {
       '&:before': {
-          borderColor: '#fff',
+          borderColor: '#111',
       },
       '&:after': {
-          borderColor: '#fff',
+          borderColor: '#111',
       },
    
   },
   icon: {
-    fill: '#fff',
+    fill: '#111',
     marginBottom: '2px'
   }
 });
@@ -58,7 +58,7 @@ const texts: Record<string, string> = {
           }}
             label={texts.label}
             onChange={handleChange}
-            style={{color: 'white'}}
+            style={{color: '#111', fontSize: '18px'}}
         >
           <MenuItem style={{ display: 'flex'}} value={'pl'}>{texts.languagePol} &nbsp; <img src={plFlag} /></MenuItem>
           <MenuItem style={{ display: 'flex'}} value={'en'}>{texts.languageEng}  &nbsp; <img src={gbFlag} /> </MenuItem>

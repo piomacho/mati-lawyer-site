@@ -1,13 +1,13 @@
 import styled from "styled-components";
 
 export const Wrapper = styled.div`
-    padding: 25% 5%;
+    padding: 20px;
 
-    @media (min-width: 768px) {
+    @media (min-width: 950px) {
         padding: 0;
         top: 20%;
         left: 20%;
-        transform: translate(-20%, 20%);
+        transform: translate(0%, 20%);
     }
 `;
 

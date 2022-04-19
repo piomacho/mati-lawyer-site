@@ -1,8 +1,6 @@
 import styled from "styled-components";
 
 export const AboutText = styled.div`
-    flex-shrink: 0;
-    height: 216px;
     white-space: pre-wrap;
     word-wrap: break-word;
     word-break: break-word;
@@ -10,24 +8,43 @@ export const AboutText = styled.div`
     font-weight: 400;
     font-style: normal;
     font-family: "Montserrat", serif;
-    font-size: 25px;
+    font-size: 14px;
     letter-spacing: 0px;
     line-height: 1.3;
     text-align: center;
-    width: 80%;
-    margin: 0 auto;
+    margin: 0px;
+    border: 1px solid #fff;
+    float: right;
+    padding: 20px;
+    text-align: justify;
 
-    @media (min-width: 768px) {
-        width: 50%;
-        font-size: 30px;
+    @media (min-width: 1000px) {
+        width: 80%;
+        font-size: 20px;
+        text-align: justify;
+    
+        padding: 40px;
+        margin-top: 60px;
+
+    }
+
+    @media (min-width: 1420px) {
+        width: 70%;
+        font-size: 22px;
+        text-align: justify;
+       
     }
   `;
 
   export const Name = styled.div`
     font-weight: 700;
     font-size: 20px;
+    color: #fff;
   `;
   export const AboutWrapper = styled.div`
-    margin-top: -150px;
     color: #FFFFFF;
+    margin-bottom: 35px;
+    @media (min-width: 1000px) {
+      margin-bottom: 100px;
+    }
   `;

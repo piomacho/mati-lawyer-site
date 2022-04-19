@@ -16,17 +16,18 @@ export const ProfilePhotoElement = styled.div`
 
 export const ProfilePhotoWrapper = styled.div`
   width: 100%;
-  flex-shrink: 0;
-  height: 507px;
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
   overflow: visible;
-  margin-top: -30px;
+ 
+  margin-bottom: 30px;
+  margin-top: 40px;
 
 
-  @media (min-width: 768px) {
+
+  @media (min-width: 1000px) {
         margin-top: 0;
    }
 
