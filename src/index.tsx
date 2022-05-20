@@ -3,6 +3,11 @@ import ReactDOM from 'react-dom';
 import './index.css';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
+import { orange } from '@mui/material/colors';
+//@ts-ignore
+import { createTheme } from '@mui/material/styles';
+import { ThemeProvider } from '@mui/material';
+
 
 ReactDOM.render(
   <React.StrictMode>

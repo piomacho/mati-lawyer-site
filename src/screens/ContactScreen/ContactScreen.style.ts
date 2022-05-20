@@ -1,13 +1,15 @@
 import styled from "styled-components";
-import Contact from "../../assets/Contact.jpeg"
-
+import Image from "../../assets/warsaw.jpeg"
 
 export const ContactScreenWrapper = styled.div`
-    background-image: url(${Contact});
-    background-size: cover;
-    background-repeat: no-repeat;
-    background-position: center;
-    min-height: 100vh;
+      min-height: 100vh;
+         background: linear-gradient(
+          rgba(0, 0, 0, 0.6), 
+          rgba(0, 0, 0, 0.6)
+        ),
+        url(${Image});
+        
+   background-size: cover;
 `;
 
 export const Row = styled.div`

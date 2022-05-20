@@ -19,32 +19,31 @@ export const InfoScreen = () => {
         others: isPl ? 'Inne' : 'Other',
     }
 
-    return( 
-    <InfoScreenContainer>
-     <SectionTitleInfo>{texts.sectionTitle}</SectionTitleInfo>
-     <InfoScreenWrapper>
-       
-       <div>
-           {modalType === null ? null : <ModalComponent type={modalType} />}
-   
-           <Row>
-               <ActionAreaCard type="immigrants" title={texts.immigrants}/>
-               <ActionAreaCard type="insurance" title={texts.insurance}/>
-           </Row>
-       
-           <Row>
-               <ActionAreaCard type="passport" title={texts.passport}/>
-               <ActionAreaCard type="business" title={texts.business}/>
-           </Row>
-   
-           <Row>
-               <ActionAreaCard type="others" title={texts.others}/>
-           </Row>
-       </div>
-   
-   {/* <ContactForm /> */}
-     
-   </InfoScreenWrapper>
-    </InfoScreenContainer>
-   )
+    return (
+        <InfoScreenContainer>
+            <InfoScreenWrapper>
+
+                <div>
+                    {modalType === null ? null : <ModalComponent type={modalType} />}
+
+                    <Row>
+                        <ActionAreaCard type="immigrants" title={texts.immigrants} />
+                        <ActionAreaCard type="insurance" title={texts.insurance} />
+                    </Row>
+
+                    <Row>
+                        <ActionAreaCard type="passport" title={texts.passport} />
+                        <ActionAreaCard type="business" title={texts.business} />
+                    </Row>
+
+                    <Row>
+                        <ActionAreaCard type="others" title={texts.others} />
+                    </Row>
+                </div>
+
+                {/* <ContactForm /> */}
+
+            </InfoScreenWrapper>
+        </InfoScreenContainer>
+    )
 };

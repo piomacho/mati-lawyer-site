@@ -12,13 +12,14 @@ import GlobalState from '../../context/GlobalState';
 
 const useStyles = makeStyles({
   select: {
-      '&:before': {
-          borderColor: '#111',
-      },
-      '&:after': {
-          borderColor: '#111',
-      },
-   
+    fontFamily: "'Josefin Sans', sans- serif",
+    '&:before': {
+      borderColor: '#111',
+    },
+    '&:after': {
+      borderColor: '#111',
+    },
+
   },
   icon: {
     fill: '#111',
@@ -30,38 +31,38 @@ export default function BasicSelect() {
   // const [state, setState] = ;
 
   const handleChange = (event: SelectChangeEvent) => {
-    if(setLang !== undefined) {
+    if (setLang !== undefined) {
       setLang(event.target.value);
     }
   };
 
-const classes = useStyles()
-const isPl = lang === 'pl';
-const texts: Record<string, string> = {
+  const classes = useStyles()
+  const isPl = lang === 'pl';
+  const texts: Record<string, string> = {
     label: isPl ? 'Język' : 'Language',
     languagePol: isPl ? 'Polski' : 'Polish',
     languageEng: isPl ? 'Angielski' : 'English',
-}
+  }
   return (
     <Box sx={{ minWidth: 120 }}>
       <FormControl variant="standard" fullWidth>
         <Select
-            labelId="demo-simple-select-standard-label"
-            id="demo-simple-select-standard"
-            value={lang}
-            defaultValue='pl'
-            className={classes.select}
-            inputProps={{
-              classes: {
-                  icon: classes.icon,
-              },
+          labelId="demo-simple-select-standard-label"
+          id="demo-simple-select-standard"
+          value={lang}
+          defaultValue='pl'
+          className={classes.select}
+          inputProps={{
+            classes: {
+              icon: classes.icon,
+            },
           }}
-            label={texts.label}
-            onChange={handleChange}
-            style={{color: '#111', fontSize: '18px'}}
+          label={texts.label}
+          onChange={handleChange}
+          style={{ color: '#111', fontSize: '18px' }}
         >
-          <MenuItem style={{ display: 'flex'}} value={'pl'}>{texts.languagePol} &nbsp; <img src={plFlag} /></MenuItem>
-          <MenuItem style={{ display: 'flex'}} value={'en'}>{texts.languageEng}  &nbsp; <img src={gbFlag} /> </MenuItem>
+          <MenuItem style={{ display: 'flex', fontFamily: "Josefin Sans, sans- serif" }} value={'pl'}>{texts.languagePol} &nbsp; <img src={plFlag} /></MenuItem>
+          <MenuItem style={{ display: 'flex', fontFamily: "Josefin Sans, sans- serif" }} value={'en'}>{texts.languageEng}  &nbsp; <img src={gbFlag} /> </MenuItem>
         </Select>
       </FormControl>
     </Box>

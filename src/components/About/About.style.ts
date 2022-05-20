@@ -7,7 +7,6 @@ export const AboutText = styled.div`
     overflow: visible;
     font-weight: 400;
     font-style: normal;
-    font-family: "Montserrat", serif;
     font-size: 14px;
     letter-spacing: 0px;
     line-height: 1.3;
@@ -16,12 +15,12 @@ export const AboutText = styled.div`
     border: 1px solid #fff;
     float: right;
     padding: 20px;
-    text-align: justify;
+    text-align: left;
 
     @media (min-width: 1000px) {
         width: 80%;
         font-size: 20px;
-        text-align: justify;
+        text-align: left;
     
         padding: 40px;
         margin-top: 60px;
@@ -31,17 +30,17 @@ export const AboutText = styled.div`
     @media (min-width: 1420px) {
         width: 70%;
         font-size: 22px;
-        text-align: justify;
+        text-align: left;
        
     }
   `;
 
-  export const Name = styled.div`
+export const Name = styled.div`
     font-weight: 700;
     font-size: 20px;
     color: #fff;
   `;
-  export const AboutWrapper = styled.div`
+export const AboutWrapper = styled.div`
     color: #FFFFFF;
     margin-bottom: 35px;
     @media (min-width: 1000px) {

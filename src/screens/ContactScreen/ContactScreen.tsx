@@ -15,32 +15,31 @@ export const ContactScreen = () => {
   const isPl = lang === 'pl';
 
   const texts: Record<string, string> = {
-      sectionTitle: isPl ? 'Kontakt' : 'Contact',
+    sectionTitle: isPl ? 'Kontakt' : 'Contact',
   }
 
-  return(
+  return (
     <div>
-      <SectionTitle themeDark={true}>{texts.sectionTitle}</SectionTitle>
       <ContactScreenWrapper>
         <ContactContainer>
           <ContactForm />
           <ContactInfo>
-              <InfoWrapper>
-                <PersonOutlineIcon />
-                <EmailTxt>Mateusz Kozłowski</EmailTxt>
-              </InfoWrapper>
-              <InfoWrapper>
-                <MailOutlineIcon />
-                <EmailTxt>h4foreigners@gmail.com</EmailTxt>
-              </InfoWrapper>
-              <InfoWrapper>
-                <PhoneOutlineIcon />
-                <EmailTxt>+48 694 307 031</EmailTxt>
-              </InfoWrapper>
+            <InfoWrapper>
+              <PersonOutlineIcon />
+              <EmailTxt>Mateusz Kozłowski</EmailTxt>
+            </InfoWrapper>
+            <InfoWrapper>
+              <MailOutlineIcon />
+              <EmailTxt>h4foreigners@gmail.com</EmailTxt>
+            </InfoWrapper>
+            <InfoWrapper>
+              <PhoneOutlineIcon />
+              <EmailTxt>+48 694 307 031</EmailTxt>
+            </InfoWrapper>
           </ContactInfo>
         </ContactContainer>
       </ContactScreenWrapper>
-  </div>
+    </div>
   )
 
 }

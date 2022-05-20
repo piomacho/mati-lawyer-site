@@ -7,21 +7,16 @@ import BasicSelect from '../../components/Select/Select';
 import { ImageWrapper, MainScreenWrapper, PersonDescription, Wrapper } from './MainScreen.style';
 
 export interface MainScreenType {
-  infoRef:  React.RefObject<HTMLDivElement>, mainRef:  React.RefObject<HTMLDivElement>, contactRef:  React.RefObject<HTMLDivElement>
+  infoRef: React.RefObject<HTMLDivElement>, mainRef: React.RefObject<HTMLDivElement>, contactRef: React.RefObject<HTMLDivElement>, welcomeRef: React.RefObject<HTMLDivElement>, officeRef: React.RefObject<HTMLDivElement>
 }
 
-export const MainScreen = ({ infoRef, mainRef, contactRef }: MainScreenType) => <MainScreenWrapper>
-  <Navigation 
-    infoRef={infoRef}
-    mainRef={mainRef}
-    contactRef={contactRef}
-  />
-    <Wrapper>
-        <ImageWrapper>
-           <ProfilePhoto />
-            <Name>Mateusz Kozłowski</Name>
-        </ImageWrapper>
-        <About/>
-    </Wrapper>
-   
+export const MainScreen = () => <MainScreenWrapper>
+  <Wrapper>
+    <ImageWrapper>
+      <ProfilePhoto />
+      <Name>Mateusz Kozłowski</Name>
+    </ImageWrapper>
+    <About />
+  </Wrapper>
+
 </MainScreenWrapper>

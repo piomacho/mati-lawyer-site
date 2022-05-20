@@ -1,5 +1,10 @@
 import styled from "styled-components";
+import LogoImage from "../../assets/black-logo.png";
 
+interface NavigationType {
+    isDown: boolean;
+    isMobile: boolean;
+}
 
 export const NavigationPanel = styled.div`
     display: flex;
@@ -16,6 +21,13 @@ export const NavigationPanel = styled.div`
     }
 `;
 
+export const LogoImageWrapper = styled.div`
+   background-image: url(${LogoImage});
+    height: 70px;
+    width: 230px;
+   background-repeat: no-repeat;
+   background-size: contain;
+`;
 export const Links = styled.div`
     
     padding-right: 20px;
@@ -24,12 +36,19 @@ export const Links = styled.div`
     color: #111;
     display: none;
 
-    @media (min-width: 1000px) {
+    
+    @media (min-width: 1000px){
         display: flex;
-        font-size: 22px;
+        font-size: 14px;
+
         text-transform: uppercase;
+}
+
+    @media (min-width: 1130px) {
+        font-size: 19px;
 
     }
+
 
 `
 export const HamburgerWrapper = styled.div`
@@ -76,5 +95,12 @@ export const EmailTxt = styled.div`
 export const RightSideWrapper = styled.div`
     display: flex;
     align-items: center;
+`;
+
+export const Wrapper = styled.div<NavigationType>`
+    position: fixed;
+    width: 100%;
+    z-index: 3;
+    ${({ isDown, isMobile }) => isDown && !isMobile ? 'visibility: hidden; transition: all 0.5s; transform: translateY(-100%);' : ' visibility: visible; transition: all 0.5s;'};
 `;
 

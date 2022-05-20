@@ -5,18 +5,48 @@ interface SectionTitle {
 }
 
 export const InfoScreenContainer = styled.div`
-    background-color: #787878;
+    background-color: #bebebe;
     position: relative;
+
     min-height: 100vh;
 `;
 
 export const InfoScreenWrapper = styled.div`  
-    background-color: #787878;
+    background-color: #bebebe;
     position: relative;
+    flex-direction: column;
     display: flex;
     align-items: center;
     justify-content: center;
-    padding: 20px 0;
+    padding: 80px 10px;
+`;
+export const Title = styled.div`
+    font-size: 36px;
+    margin-bottom:20px;
+
+`;
+
+export const ColorfullBar = styled.div`
+    height: 5px;
+    margin-bottom: 50px;
+    width: 100px;
+    background-color: #ff8bb1;
+`;
+
+export const ListItem = styled.li`
+    text-align: left;
+    font-size: 24px;
+    padding-bottom: 16px;
+`;
+
+export const ListTitle = styled.div`
+   font-size: 24px;
+   text-align: left;
+   padding-left:20px;
+`;
+
+export const ListWrapper = styled.div`
+
 `;
 
 export const Row = styled.div`

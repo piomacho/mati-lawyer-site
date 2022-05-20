@@ -1,13 +1,13 @@
 import styled from "styled-components";
-import MainImage from "../../assets/hero.jpeg"
+import Contact from "../../assets/Contact.jpeg"
 
 export const MainScreenWrapper = styled.div`
    min-height: 100vh;
    background: linear-gradient(
-          rgba(0, 0, 0, 0.8), 
-          rgba(0, 0, 0, 0.8)
+          rgba(0, 0, 0, 0.6), 
+          rgba(0, 0, 0, 0.6)
         ),
-        url(${MainImage});
+        url(${Contact});
         
    background-size: cover;
    
@@ -24,6 +24,9 @@ export const Wrapper = styled.div`
    height: calc(100% - 70px);
    align-items: center;
    padding: 0 10px;
+   @media (min-width: 768px) {
+      padding: 0 60px;
+   }
    @media (min-width: 1000px) {
       height: calc(100% - 100px);
       padding: 0 100px;
@@ -40,7 +43,7 @@ export const ImageWrapper = styled.div`
 
    }
 `
-;
+   ;
 
 // export const ImageWithDescriptionWrapper = styled.div`
 //    width: 50%;
